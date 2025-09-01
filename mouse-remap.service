@@ -1,0 +1,11 @@
+[Unit]
+Description=Mouse Button Remapping Daemon
+After=graphical.target
+
+[Service]
+ExecStart=%h/.local/bin/mouse_remap_daemon.sh
+Restart=always
+
+[Install]
+WantedBy=default.target
+
