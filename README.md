@@ -1,10 +1,11 @@
 # input remap per process
  this is a very simple service, it remaps inputs on a per app basis,
  if the service is running, and the target app opens, the remap is applied.
-## Dependencies
-THIS RELIES ON BEING RAN IN AN XORG ENVIRONMENT
 
 I plan on adding support for display server detection, but as it stands currently, this is an X environment tool.
+
+## Dependencies
+THIS RELIES ON BEING RAN IN AN XORG ENVIRONMENT
 - xdotool
 - xbindkeys
 - inotify-tools
