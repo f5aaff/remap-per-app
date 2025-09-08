@@ -3,6 +3,11 @@
 # globals
 CONFIG="$HOME/.config/mouse-remap.conf"
 STATE_DIR="/tmp/mouse_remap"
+# set session type to x11 unless it's already set
+SESSION_TYPE="${XDG_SESSION_TYPE:-x11}"
+# set debug to 0 unless debug is set by user
+DEBUG="${DEBUG:-0}"
+
 
 # clean up all temp files from prior runs
 rm -rf "$STATE_DIR" > /dev/null
@@ -13,8 +18,6 @@ mkdir -p "$STATE_DIR"
 # declare an associative array var for STATE
 declare -A STATE
 
-# set debug to 0 unless debug is set by user
-DEBUG="${DEBUG:-0}"
 
 # basic log function, just logs level and time stamp,
 # and hides debug logs unless debug is active
