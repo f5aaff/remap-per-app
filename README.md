@@ -3,7 +3,7 @@
  if the service is running, and the target app opens, the remap is applied.
 ## Dependencies
 THIS RELIES ON BEING RAN IN AN XORG ENVIRONMENT
-IF IT'S WAYLAND, FIND YOUR OWN FRIGGIN TOOLING
+I plan on adding support for display server detection, but as it stands currently, this is an X environment tool.
 - xdotool
 - xbindkeys
 - inotify-tools
