@@ -19,17 +19,13 @@ $HOME/.config/mouse-remap.conf
 ```conf
 [RuneLite]
 match = net.runelite.client.RuneLite
-mappings = b:3=Escape, b:4=space
+mappings = b:3=Escape, b:4=space, Control+q=F12
 ```
 - where *match* is the _case sensitive process name_
-- where *b:x* is the mouse button number you wish to target
+- where *b:x* is the **mouse** button number you wish to target
 - where *b:x=\<key\>* is the key you wish to remap to.
-- keyboard combos can be mapped as well, using the following:
-```conf
-[RuneLite]
-match = net.runelite.client.RuneLite
-mappings = b:8=Escape, b:9=space, Control+q=F12
-```
+- where *Control+q* is the key combination you wish to map.
+
 ### Systemd Service
 
 the provided mouse-remap.service expects to be placed:
