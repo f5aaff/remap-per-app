@@ -114,6 +114,12 @@ match = net.runelite.client.RuneLite
 if you run this as a foreground service, by just running the script manually,
 the logs will be printed to STDOUT.
 
+to enable debug messaging, run it with
+```bash
+
+DEBUG=1
+```
+
 you can also run pgrep against xbindkeys:
 ```bash
 pgrep -a xbindkeys
