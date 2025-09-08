@@ -1,5 +1,6 @@
-# mouse remap per process
-
+# input remap per process
+ this is a very simple service, it remaps inputs on a per app basis,
+ if the service is running, and the target app opens, the remap is applied.
 ## Dependencies
 THIS RELIES ON BEING RAN IN AN XORG ENVIRONMENT
 IF IT'S WAYLAND, FIND YOUR OWN FRIGGIN TOOLING
@@ -18,12 +19,17 @@ $HOME/.config/mouse-remap.conf
 ```conf
 [RuneLite]
 match = net.runelite.client.RuneLite
-buttons = b:3=Escape, b:4=space
+mappings = b:3=Escape, b:4=space
 ```
 - where *match* is the _case sensitive process name_
 - where *b:x* is the mouse button number you wish to target
 - where *b:x=\<key\>* is the key you wish to remap to.
-
+- keyboard combos can be mapped as well, using the following:
+```conf
+[RuneLite]
+match = net.runelite.client.RuneLite
+mappings = b:8=Escape, b:9=space, Control+q=F12
+```
 ### Systemd Service
 
 the provided mouse-remap.service expects to be placed:
