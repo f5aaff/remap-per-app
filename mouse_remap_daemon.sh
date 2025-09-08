@@ -4,7 +4,7 @@ CONFIG="$HOME/.config/mouse-remap.conf"
 STATE_DIR="/tmp/mouse_remap"
 rm -rf "$STATE_DIR" > /dev/null
 mkdir -p "$STATE_DIR"
-
+pkill "xbindkeys -f /tmp/mouse_remap/*"
 declare -A STATE
 
 DEBUG="${DEBUG:-0}"
