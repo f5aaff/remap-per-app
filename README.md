@@ -16,9 +16,8 @@ _______________
 
 ### Wayland environments
 [wez/evremap](https://github.com/wez/evremap)
-#### **> [!IMPORTANT]
-> [!warning] PERMISSIONS
-> This service expects the user to have followed the evremap install guide,
+#### IMPORTANT NOTE 
+This service expects the user to have followed the evremap install guide,
 choosing to add the user to the input group - granting permissions to apply remaps.
 _______________
 
