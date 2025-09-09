@@ -5,6 +5,8 @@ this is a very simple service, it remaps inputs on a per app basis,
 
 this does not check if a window is focussed, so it _will_ cause clashes and odd
 behaviour, if duplicate binds are used.
+
+_______________
 _______________
 
 ## Dependencies
@@ -14,11 +16,15 @@ _______________
 - xbindkeys
 - inotify-tools
 
+_______________
+
 ### Wayland environments
 [wez/evremap](https://github.com/wez/evremap)
 #### IMPORTANT NOTE 
 This service expects the user to have followed the evremap install guide,
 choosing to add the user to the input group - granting permissions to apply remaps.
+
+_______________
 _______________
 
 ## Install
@@ -56,8 +62,9 @@ device = SteelSeries SteelSeries Rival 3
 - where *device = <device name here>* is the device found in the list-devices subcommand of evremap.
 - for wayland environments, the keys are a bit different. In order to find them,
 do the following:
--    ```evremap list-devices``` - this will list all available HIDs
--    ```evremap list-keys``` - this will list all the available keys that evremap supports.
+  - ```evremap list-devices``` - this will list all available HIDs
+  - ```evremap list-keys``` - this will list all the available keys that evremap supports.
+
 _______________
 
 ### Systemd Service
@@ -72,9 +79,13 @@ the example given expects the actual daemon script to be placed under:
 ```bash
 $HOME/.local/bin/mouse_remap_daemon.sh
 ```
-if you want the daemon script somewhere else, edit the ExecStart var.
-if you want to change the config location, assign the env. var. ```CONFIG=path/to/your/config```
+
+- if you want the daemon script somewhere else, edit the ExecStart var.
+- if you want to change the config location, assign the env. var. ```CONFIG=path/to/your/config```
 in the ExecStart var.
+
+_______________
+
 ### Daemon Script
 
 as mentioned previously, the expected 'out-the-box' install location is:
@@ -92,15 +103,21 @@ to enable and start the service immediately, run the following:
 ```bash
 systemctl --user enable --now mouse-remap.service
 ```
+_______________
+_______________
 
 # Verifying it works
+
 ## button maps
+
 ### using xev
 run the following:
 ```bash
 xev | grep button
 ```
 - this opens a xev window, hit buttons and see if they work. pretty simple.
+
+_______________
 
 ### using xinput
 find the mouse device:
@@ -122,13 +139,17 @@ button release x
 
 adjust config accordingly.
 
+_______________
+
 ### using libinput
+
 this will start a debug process, where each button press/pointer motion will be printed in STDOUT.
 use this to determine the button names of the keys you wish to remap.
 
 ```bash
 libinput debug-events
 ```
+_______________
 
 ## process ID
 
@@ -152,6 +173,8 @@ so my config is as follows:
 match = net.runelite.client.RuneLite
 ...
 ```
+
+_______________
 
 ## Debugging
 
