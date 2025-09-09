@@ -1,0 +1,10 @@
+Package: remap-per-app
+Version: 0.1.0
+Section: utils
+Priority: optional
+Architecture: all
+Maintainer: J R Dunsmore github.com/f5aaff
+Description: Per-app remap bash utility
+Depends: bash, systemd, xdotool, xbindkeys, inotify-tools
+
+

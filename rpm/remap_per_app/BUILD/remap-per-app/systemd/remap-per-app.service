@@ -1,9 +1,9 @@
 [Unit]
-Description=Mouse Button Remapping Daemon
+Description=Per App Remapping Daemon
 After=graphical.target
 
 [Service]
-ExecStart=%h/.local/bin/mouse_remap_daemon.sh
+ExecStart=/usr/local/bin/remap-per-app-daemon
 Restart=always
 
 [Install]

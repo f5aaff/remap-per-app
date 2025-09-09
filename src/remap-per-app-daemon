@@ -2,7 +2,7 @@
 
 # globals
 # set config to default, unless otherwise specified
-CONFIG="${CONFIG:-$HOME/.config/mouse-remap.conf}"
+CONFIG="${CONFIG:-$HOME/.config/remap-per-app.conf}"
 STATE_DIR="/tmp/mouse_remap"
 # set session type to x11 unless it's already set
 SESSION_TYPE="${XDG_SESSION_TYPE:-x11}"
