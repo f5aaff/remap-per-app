@@ -2,8 +2,8 @@
 
 # globals
 # set config to default, unless otherwise specified
-CONFIG="${CONFIG:-$HOME/.config/mouse-remap.conf}"
-STATE_DIR="/tmp/mouse_remap"
+CONFIG="${CONFIG:-$HOME/.config/remap-per-app.conf}"
+STATE_DIR="/tmp/remap-per-app"
 # set session type to x11 unless it's already set
 SESSION_TYPE="${XDG_SESSION_TYPE:-x11}"
 # set debug to 0 unless debug is set by user
@@ -68,8 +68,6 @@ generate_xbindkeys_config() {
     local file="$STATE_DIR/$app.scm"
     # creates an anonymous file, echos the result of parse_x11_mappings into
     # this 'file', to be used in the remap application.
-    parse_x11_mappings "$buttons"
-    parse_x11_mappings "$keys"
     > "$file"
 
     [[ -n "$buttons" ]] && parse_x11_mappings "$buttons" >> "$file"
@@ -95,7 +93,7 @@ generate_evremap_config() {
 apply_x11_remap() {
     local app="$1"
     local mappings="$2"
-
+    log DEBUG "$app" "$mappings"
     # skip current remap if a .pid is present for the given app.
     if [ -f "$STATE_DIR/$app.pid" ]; then
         log DEBUG "X11 remap for [$app] already running, skipping"
@@ -169,9 +167,9 @@ while true; do
         # parse out the mappings line
         elif [[ "$line" =~ ^mappings ]]; then
             mappings=$(echo "$line" | cut -d'=' -f2- | xargs)
-        elif [[ "$line" =~ ^device ]]; then
+        if [[ "$line" =~ ^device ]]; then
             device=$(echo "$line" | cut -d'=' -f2- | xargs)
-
+        fi
             # if match is empty, default to app name
             [[ -z "$match" ]] && match="$app"
 
